@@ -88,7 +88,11 @@ RUN ls -lh /home/caribbeanwatch/.ssh
 
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN mkdir /home/caribbeanwatch/src/
-RUN git clone --depth=50 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" src/pyRVPelagia64PE414Sababank_Current
+RUN git clone --depth=50 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/
+
+# Make a copy of the project caribbeanwatch web 
+RUN mkdir /home/caribbeanwatch/src/web/
+RUN git clone https://adamcandy:fcdfe5ea8505243edcf07b67f558a0eb705e6669@github.com/CaribbeanWatch/caribbeanwatch.github.io.git /home/caribbeanwatch/src/web/caribbeanwatch/
 
 #WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
 #RUN git pull
