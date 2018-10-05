@@ -47,7 +47,8 @@ matrix:
     install:
       - docker build -f Dockerfile -t caribbeanwatch .
     script:
-      - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/pyRVPelagia64PE414Sababank_Current/mercator/update.sh
+      - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.sh
+
       #- docker run -a stdout -t shingle make unittest
       # Pre-download, to best work with Travis timeout
       #- docker run -a stdout -t shingle make pre_download_large_datasets

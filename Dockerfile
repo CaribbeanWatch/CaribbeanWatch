@@ -86,12 +86,13 @@ RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
 RUN ls -lh /home/caribbeanwatch/.ssh
 
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
-RUN git clone --depth=50 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" pyRVPelagia64PE414Sababank_Current
+RUN mkdir /home/caribbeanwatch/src/
+RUN git clone --depth=50 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" src/pyRVPelagia64PE414Sababank_Current
 
-#WORKDIR /home/caribbeanwatch/pyRVPelagia64PE414Sababank_Current
+#WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
 #RUN git pull
 
-ENV PATH /home/caribbeanwatch/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 #RUN make
 
