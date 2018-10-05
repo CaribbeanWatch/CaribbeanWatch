@@ -70,20 +70,30 @@ RUN pip install --no-binary :all: Shapely==1.5.9
 
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
+
+# Switch user
 USER caribbeanwatch
 WORKDIR /home/caribbeanwatch
+
 
 # Setup SSH
 # https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile
 RUN mkdir /home/caribbeanwatch/.ssh/
-ADD caribbean_watch_bitbucket /home/caribbeanwatch/.ssh/
-#RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
-RUN ls -lh /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket" >> /home/caribbeanwatch/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/caribbeanwatch/.ssh/config
+RUN ls -lhd /home/caribbeanwatch
+RUN ls -lh /home/caribbeanwatch
+RUN ls -lh /home/caribbeanwatch/.ssh
+ADD --chown=caribbeanwatch:caribbeanwatch caribbean_watch_bitbucket /home/caribbeanwatch/.ssh/
+RUN ls -lh /home/caribbeanwatch/.ssh
+# RUN chmod u+rwX /home/caribbeanwatch/.ssh
+# RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
+
+
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN git clone --depth=50 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" pyRVPelagia64PE414Sababank_Current
-WORKDIR /home/caribbeanwatch/pyRVPelagia64PE414Sababank_Current
+
+#WORKDIR /home/caribbeanwatch/pyRVPelagia64PE414Sababank_Current
 #RUN git pull
 
 ENV PATH /home/caribbeanwatch/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
