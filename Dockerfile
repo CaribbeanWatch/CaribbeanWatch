@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y \
         python-scipy \
         python-numpy \
         python-matplotlib \
-        python-matplotlib-basemap \
+				python-mpltoolkits.basemap \
         python-shapely \
         python-pyproj \
         python-gdal \
