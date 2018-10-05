@@ -67,6 +67,7 @@ RUN pip install --force-reinstall --ignore-installed --no-binary --no-cache-dir 
 RUN pip install Pydap==3.2.1
 RUN pip install -U geos
 RUN pip install --no-binary :all: Shapely==1.5.9
+RUN pip install motu-client
 
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
