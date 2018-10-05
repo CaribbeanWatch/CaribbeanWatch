@@ -54,7 +54,8 @@ RUN apt-get update && apt-get install -y \
         python-pyproj \
         python-gdal \
         gdal-bin \
-        python-imaging
+        python-imaging \
+				ffmpeg
 
 
 # Upgrade pip
