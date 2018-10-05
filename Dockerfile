@@ -74,6 +74,7 @@ USER caribbeanwatch
 WORKDIR /home/caribbeanwatch
 
 # Setup SSH
+# https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile
 RUN mkdir /home/caribbeanwatch/.ssh/
 ADD caribbean_watch_bitbucket /home/caribbeanwatch/.ssh/
 RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
