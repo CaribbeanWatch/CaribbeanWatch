@@ -77,7 +77,8 @@ WORKDIR /home/caribbeanwatch
 # https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile
 RUN mkdir /home/caribbeanwatch/.ssh/
 ADD caribbean_watch_bitbucket /home/caribbeanwatch/.ssh/
-RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
+#RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
+RUN ls -lh /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_bitbucket" >> /home/caribbeanwatch/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/caribbeanwatch/.ssh/config
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
