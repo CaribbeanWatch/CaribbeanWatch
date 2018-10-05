@@ -92,7 +92,8 @@ RUN git clone --depth=50 --branch="current" "git@bitbucket.org:adamcandy/pyrvpel
 
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/
-RUN git clone --depth 1 https://adamcandy:fcdfe5ea8505243edcf07b67f558a0eb705e6669@github.com/CaribbeanWatch/caribbeanwatch.github.io.git /home/caribbeanwatch/src/web/caribbeanwatch/
+RUN git clone --depth 1 git@github.com:CaribbeanWatch/caribbeanwatch.github.io.git /home/caribbeanwatch/src/web/caribbeanwatch/
+
 
 #WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
 #RUN git pull
