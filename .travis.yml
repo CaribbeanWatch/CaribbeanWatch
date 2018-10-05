@@ -1,0 +1,55 @@
+
+##############################################################################
+#
+#  Copyright (C) 2017-2018 Dr Adam S. Candy.
+#  
+#  CaribbeanWatch:  Up-to-date daily mean surface currents of the
+#                   regional Caribbean Sea. By @adamcandy, TU Delft with
+#                   NIOZ using data assimilation MercatorOcean, CMEMS_EU.
+#  
+#                   Web: https://candylab.org/caribbeanwatch
+#  
+#                   Contact: Dr Adam S. Candy, adam@candylab.org
+#  
+#  This file is part of the CaribbeanWatch project.
+#  
+#  Please see the AUTHORS file in the main source directory for a full list
+#  of contributors.
+#  
+#  CaribbeanWatch is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#  
+#  CaribbeanWatch is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Lesser General Public License for more details.
+#  
+#  You should have received a copy of the GNU Lesser General Public License
+#  along with CaribbeanWatch. If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+matrix:
+  include:
+
+  # Build Environment #1
+  #
+  # Ubuntu Xenial 16.04 Docker container build and test
+  #
+  - env:
+      - NAME=Xenial-16.04-docker
+    services:
+      - docker
+    dist: xenial
+    language: cpp
+    install:
+      - docker build -f Dockerfile -t CaribbeanWatch .
+    script:
+      - docker run -v $PWD:/run -w="/run" -a stdout -t CaribbeanWatch pyRVPelagia64PE414Sababank_Current/mercator/update.sh
+      #- docker run -a stdout -t shingle make unittest
+      # Pre-download, to best work with Travis timeout
+      #- docker run -a stdout -t shingle make pre_download_large_datasets
+      #- docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
+
