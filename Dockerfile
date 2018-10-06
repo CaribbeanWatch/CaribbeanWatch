@@ -31,7 +31,7 @@
 #
 ##############################################################################
 
-# DockerFile for a Shingle development container
+# DockerFile for a CaribbeanWatch development container
 
 # Use a Xenial base image
 FROM ubuntu:xenial
