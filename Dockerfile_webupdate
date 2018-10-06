@@ -56,12 +56,13 @@ WORKDIR /home/webdev
 
 # Setup SSH
 # https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile
+# ssh-keygen -q -t rsa -N '' -f candylab-updater
 RUN mkdir /home/webdev/.ssh/
-RUN echo "IdentityFile /home/webdev/.ssh/caribbean_watch_repos" >> /home/webdev/.ssh/config
+RUN echo "IdentityFile /home/webdev/.ssh/candylab-updater" >> /home/webdev/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/webdev/.ssh/config
-COPY --chown=webdev:webdev caribbean_watch_repos /home/webdev/.ssh/
+COPY --chown=webdev:webdev candylab-updater /home/webdev/.ssh/
 RUN chmod 600 /home/webdev/.ssh/config
-RUN chmod 600 /home/webdev/.ssh/caribbean_watch_repos
+RUN chmod 600 /home/webdev/.ssh/candylab-updater
 
 # Set up git:
 RUN git config --global user.email "adam@candylab.org" 
@@ -87,7 +88,7 @@ RUN touch docs/.nojekyll
 
 RUN git pull
 RUN git add -A docs/
-RUN git commit -a -m "Automatic update to static site from travis, jobid: ${jobid}"
+RUN git commit -a -m "Automatic update to static site from travis CaribbeanWatch, jobid: ${jobid}"
 RUN git push
 RUN git rev-parse HEAD~1
 
