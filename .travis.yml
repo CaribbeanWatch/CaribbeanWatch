@@ -14,7 +14,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r caribbean_basin
 
@@ -28,7 +28,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r curacao
 
@@ -42,7 +42,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r curacao_regional 
 
@@ -56,7 +56,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r sababank
 
@@ -70,7 +70,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r sintmaarten
 
@@ -87,7 +87,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r caribbean_basin
 
@@ -101,7 +101,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r curacao
 
@@ -115,7 +115,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r curacao_regional 
 
@@ -129,7 +129,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r sababank
 
@@ -143,7 +143,7 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile -t caribbeanwatch .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile -t caribbeanwatch .
     script:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r sintmaarten
 
@@ -160,5 +160,5 @@ matrix:
     - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install:
-    - docker build -f Dockerfile_webupdate -t webpages .
+    - docker build --build-arg jobid="$TRAVIS_JOB_NUMBER" -f Dockerfile_webupdate -t webpages .
 
