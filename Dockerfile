@@ -97,6 +97,7 @@ RUN ls -lh /home/caribbeanwatch/.ssh
 # Set up git:
 RUN git config --global user.email "adam@candylab.org" 
 RUN git config --global user.name "Adam Candy"
+RUN git config --global push.default matching
 
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN mkdir /home/caribbeanwatch/src/
