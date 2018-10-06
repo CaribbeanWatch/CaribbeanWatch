@@ -61,7 +61,9 @@ RUN apt-get update && apt-get install -y \
         python-imaging \
         python-netcdf4 \
 				ffmpeg \
-				texlive
+				texlive \
+				texlive-latex-extra \
+				texlive-fonts-recommended
 
 # Upgrade pip
 RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
