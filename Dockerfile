@@ -63,7 +63,8 @@ RUN apt-get update && apt-get install -y \
 				ffmpeg \
 				texlive \
 				texlive-latex-extra \
-				texlive-fonts-recommended
+				texlive-fonts-recommended \
+				dvipng
 
 # Upgrade pip
 RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
