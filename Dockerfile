@@ -75,6 +75,7 @@ RUN pip install --no-binary :all: Shapely==1.5.9
 RUN pip install motu-client
 RUN pip install requests_oauthlib
 RUN pip install fiona
+RUN pip install tweepy
 
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
@@ -92,6 +93,10 @@ COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_repos /home/caribbean
 RUN chmod 600 /home/caribbeanwatch/.ssh/config
 RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_repos
 RUN ls -lh /home/caribbeanwatch/.ssh
+
+# Set up git:
+RUN git config --global user.email "adam@candylab.org" 
+RUN git config --global user.name "Adam Candy"
 
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN mkdir /home/caribbeanwatch/src/
