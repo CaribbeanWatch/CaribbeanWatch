@@ -58,7 +58,8 @@ RUN apt-get update && apt-get install -y \
         gdal-bin \
         python-imaging \
         python-netcdf4 \
-				ffmpeg
+				ffmpeg \
+				texlive-full
 
 
 # Upgrade pip
