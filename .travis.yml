@@ -19,7 +19,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r caribbean_basin
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r caribbean_basin
 
   - env:
     - NAME=curacao-daily
@@ -33,7 +33,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r curacao
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r curacao
 
   - env:
     - NAME=curacao_regional-daily
@@ -47,7 +47,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r curacao_regional 
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r curacao_regional 
 
   - env:
     - NAME=sababank-daily
@@ -61,7 +61,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r sababank
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r sababank
 
   - env:
     - NAME=sintmaarten-daily
@@ -75,7 +75,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r sintmaarten
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r sintmaarten
 
 
 
@@ -92,7 +92,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r caribbean_basin
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --2h -r caribbean_basin
 
   - env:
     - NAME=curacao-2h
@@ -106,7 +106,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r curacao
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --2h -r curacao
 
   - env:
     - NAME=curacao_regional-2h
@@ -120,7 +120,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r curacao_regional 
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --2h -r curacao_regional 
 
   - env:
     - NAME=sababank-2h
@@ -134,7 +134,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r sababank
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --2h -r sababank
 
   - env:
     - NAME=sintmaarten-2h
@@ -148,7 +148,7 @@ matrix:
     install:
     - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r sintmaarten
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --2h -r sintmaarten
 
 
 
