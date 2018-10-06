@@ -100,7 +100,7 @@ RUN git config --global user.name "Adam Candy"
 
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN mkdir /home/caribbeanwatch/src/
-RUN git clone --depth=50 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/
+RUN git clone --depth 1 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/
 COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/twitter_secret.py
 
 # Make a copy of the project caribbeanwatch web 

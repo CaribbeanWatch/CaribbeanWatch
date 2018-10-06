@@ -1,7 +1,11 @@
+
+# - NAME=Xenial-16.04-docker
+
 matrix:
   include:
+
   - env:
-    - NAME=Xenial-16.04-docker
+    - NAME=caribbean_basin-daily
     services:
     - docker
     dist: xenial
@@ -12,4 +16,132 @@ matrix:
     install:
     - docker build -f Dockerfile -t caribbeanwatch .
     script:
-    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.sh
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r caribbean_basin
+
+  - env:
+    - NAME=curacao-daily
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r curacao
+
+  - env:
+    - NAME=curacao_regional-daily
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r curacao_regional 
+
+  - env:
+    - NAME=sababank-daily
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r sababank
+
+  - env:
+    - NAME=sintmaarten-daily
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --daily -r sintmaarten
+
+
+  - env:
+    - NAME=caribbean_basin-2h
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r caribbean_basin
+
+  - env:
+    - NAME=curacao-2h
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r curacao
+
+  - env:
+    - NAME=curacao_regional-2h
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r curacao_regional 
+
+  - env:
+    - NAME=sababank-2h
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r sababank
+
+  - env:
+    - NAME=sintmaarten-2h
+    services:
+    - docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install:
+    - docker build -f Dockerfile -t caribbeanwatch .
+    script:
+    - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --2h -r sintmaarten
+
