@@ -43,6 +43,8 @@ MAINTAINER Adam Candy <adam@candylab.org>
 RUN apt-get update && apt-get install -y \
         git \
         build-essential \
+        libnetcdf-dev \
+        netcdf-bin \
         python-setuptools \
         python-dev \
         python-pip \
@@ -55,6 +57,7 @@ RUN apt-get update && apt-get install -y \
         python-gdal \
         gdal-bin \
         python-imaging \
+        python-netcdf4 \
 				ffmpeg
 
 
