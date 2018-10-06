@@ -73,6 +73,7 @@ RUN pip install -U geos
 RUN pip install --no-binary :all: Shapely==1.5.9
 RUN pip install motu-client
 RUN pip install requests_oauthlib
+RUN pip install fiona
 
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
