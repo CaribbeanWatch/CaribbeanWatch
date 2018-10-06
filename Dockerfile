@@ -32,8 +32,7 @@
 ##############################################################################
 
 # DockerFile for a CaribbeanWatch development container
-
-ARG jobid="[undefined]"
+ARG TRAVIS_JOB_NUMBER="undefined"
 
 # Use a Xenial base image
 FROM ubuntu:xenial
@@ -115,7 +114,7 @@ RUN git clone --depth 1 git@github.com:CaribbeanWatch/caribbeanwatch.github.io.g
 #RUN git pull
 
 ENV PATH /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV JOBID "${jobid}"
+ENV JOBID $TRAVIS_JOB_NUMBER
 
 #RUN make
 
