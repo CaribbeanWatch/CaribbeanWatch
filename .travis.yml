@@ -1,8 +1,5 @@
 
 # - NAME=Xenial-16.04-docker
-env:
-  - REGION = caribbean_basin
-  - REGION = curacao
 
 services:
 - docker
@@ -20,6 +17,9 @@ jobs:
       script: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
       env: REGION=None
     - stage: generate
+      env:
+      - REGION = caribbean_basin
+      - REGION = curacao
       script: docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r $REGION
     - stage: deploy
       env: REGION=foo
