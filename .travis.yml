@@ -7,6 +7,8 @@ env:
 jobs:
   include:
     stage: build
+    name: "Build"
+    services:
     - docker
     dist: xenial
     language: cpp
