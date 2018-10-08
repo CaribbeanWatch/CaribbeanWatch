@@ -17,7 +17,7 @@ before_install:
 - tar xvf store.tar
 script:
 - if [ -f '/home/travis/cache/cache.tar.gz' ]; then gunzip -c '/home/travis/cache/cache.tar.gz' | docker load; fi
-- docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch:${TRAVIS_COMMIT} /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r $REGION
+- docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r $REGION
 #install:
 #- docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
 
@@ -25,9 +25,9 @@ jobs:
   include:
     - stage: build
       script: 
-      - docker build -t caribbeanwatch:${TRAVIS_COMMIT} -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
-      #- mkdir -p '/home/travis/cache/'; docker save caribbeanwatch:${TRAVIS_COMMIT} | gzip > '/home/travis/cache/cache.tar.gz'
-      - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p '/home/travis/cache/'; docker save $(docker history -q caribbeanwatch:${TRAVIS_COMMIT} | grep -v '<missing>') | gzip > '/home/travis/cache/cache.tar.gz'; fi
+      - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
+      #- mkdir -p '/home/travis/cache/'; docker save caribbeanwatch | gzip > '/home/travis/cache/cache.tar.gz'
+      - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p '/home/travis/cache/'; docker save $(docker history -q caribbeanwatch | grep -v '<missing>') | gzip > '/home/travis/cache/cache.tar.gz'; fi
       env: REGION=None
     #- stage: data
     #  env: REGION=data
