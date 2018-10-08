@@ -1,17 +1,17 @@
 
 # - NAME=Xenial-16.04-docker
 env:
-  - NAME=caribbean_basin
-  - NAME=curacao
-  #- NAME = curacao_regional-daily
-  #- NAME = sababank-daily
-  #- NAME = sintmaarten-daily
-  #- NAME = caribbean_basin-2h
-  #- NAME = curacao-2h
-  #- NAME = curacao_regional-2h
-  #- NAME = sababank-2h
-  #- NAME = sintmaarten-2h
-  #- NAME = web-build
+  - NAME = caribbean_basin-daily
+  - NAME = curacao-daily
+  - NAME = curacao_regional-daily
+  - NAME = sababank-daily
+  - NAME = sintmaarten-daily
+
+  - NAME = caribbean_basin-2h
+  - NAME = curacao-2h
+  - NAME = curacao_regional-2h
+  - NAME = sababank-2h
+  - NAME = sintmaarten-2h
 
 services:
 - docker
@@ -23,6 +23,6 @@ before_install:
 install:
 - docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
 script:
-- docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r $NAME 
+- docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER -r $NAME 
 
 
