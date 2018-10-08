@@ -77,6 +77,7 @@ RUN pip install motu-client
 RUN pip install requests_oauthlib
 RUN pip install fiona
 RUN pip install tweepy
+RUN pip install cloudpickle
 
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
