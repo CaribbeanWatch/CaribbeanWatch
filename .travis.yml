@@ -4,10 +4,6 @@ env:
   global:
     TRAVIS_JOB_NUMBER=$TRAVIS_JOB_NUMBER
 
-stages:
-  - build
-  - generate
-
 jobs:
   include:
     stage: build
