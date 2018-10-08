@@ -1,8 +1,6 @@
 
 # - NAME=Xenial-16.04-docker
 env:
-  global:
-    TRAVIS_JOB_NUMBER=$TRAVIS_JOB_NUMBER
   - REGION = caribbean_basin
   - REGION = curacao
 
