@@ -27,8 +27,6 @@ script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPela
 
 jobs:
   include:
-    - stage: test
-
     - stage: deploy
       env: NAME=webpages
       services: docker
