@@ -115,7 +115,7 @@ RUN git clone --depth 1 git@github.com:CaribbeanWatch/caribbeanwatch.github.io.g
 ENV PATH /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV JOBID $TRAVIS_JOB_NUMBER
 
-RUN /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --download
+#RUN /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --download
 
 #RUN make
 
