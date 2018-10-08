@@ -43,35 +43,35 @@ MAINTAINER Adam Candy <adam@candylab.org>
 # Install required packages
 RUN apt-get update && apt-get install -y \
         git \
-        build-essential \
-        libnetcdf-dev \
-        netcdf-bin \
-        python-setuptools \
-        python-dev \
+        #build-essential \
+        #libnetcdf-dev \
+        #netcdf-bin \
+        #python-setuptools \
+        #python-dev \
         python-pip \
         python-scipy \
         python-numpy \
         python-matplotlib \
 				python-mpltoolkits.basemap \
         python-shapely \
-        python-pyproj \
-        python-gdal \
-        gdal-bin \
+        #python-pyproj \
+        #python-gdal \
+        #gdal-bin \
         python-imaging \
         python-netcdf4 \
 				ffmpeg \
 				texlive-full
 
 # Upgrade pip
-RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
+#RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 
 # Install ScientificPython
-RUN pip install --force-reinstall --ignore-installed --no-binary --no-cache-dir --no-binary :all: ScientificPython
+#RUN pip install --force-reinstall --ignore-installed --no-binary --no-cache-dir --no-binary :all: ScientificPython
 
 # Update dap and shapely with recent versions
-RUN pip install Pydap==3.2.1
-RUN pip install -U geos
-RUN pip install --no-binary :all: Shapely==1.5.9
+#RUN pip install Pydap==3.2.1
+#RUN pip install -U geos
+#RUN pip install --no-binary :all: Shapely==1.5.9
 RUN pip install motu-client
 RUN pip install requests_oauthlib
 RUN pip install fiona
