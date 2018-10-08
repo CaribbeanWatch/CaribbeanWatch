@@ -64,7 +64,7 @@ RUN apt-get update && apt-get install -y \
 				#texlive-full
 
 # Upgrade pip
-#RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
+RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 
 # Install ScientificPython
 #RUN pip install --force-reinstall --ignore-installed --no-binary --no-cache-dir --no-binary :all: ScientificPython
