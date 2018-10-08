@@ -28,6 +28,6 @@ jobs:
 
 stages:
   - build
-  - generate
+  - test
   - deploy
 
