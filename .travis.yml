@@ -28,6 +28,8 @@ jobs:
       - docker build -t ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER" .
       - if [[ ${TRAVIS_BRANCH} == "master" ]] && [[ ${TRAVIS_PULL_REQUEST} == "false" ]]; then mkdir -p $(dirname '/home/travis/cache/cache.tar.gz') ; docker save $(docker history -q ${DOCKER_REPOSITORY}:${TRAVIS_COMMIT} | grep -v '<missing>') | gzip > '/home/travis/cache/cache.tar.gz'; fi
       env: REGION=None
+    #- stage: data
+    #  env: REGION=data
     - stage: deploy
       env: REGION=foo
       script: docker run -a stdout -t webpages ./update.sh "Automatic update to static site from travis CaribbeanWatch, jobid $TRAVIS_JOB_NUMBER"
