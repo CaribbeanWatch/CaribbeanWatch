@@ -38,8 +38,7 @@ jobs:
     - docker run -v $PWD:/run -w="/run" -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py -j $TRAVIS_JOB_NUMBER --daily -r caribbean_basin
 
     stage: deploy
-    - env:
-    - NAME=web-build
+    name: web-build
     services:
     - docker
     dist: xenial
