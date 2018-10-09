@@ -90,10 +90,13 @@ WORKDIR /home/caribbeanwatch
 # https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile
 RUN mkdir /home/caribbeanwatch/.ssh/
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_repos" >> /home/caribbeanwatch/.ssh/config
+RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos" >> /home/caribbeanwatch/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/caribbeanwatch/.ssh/config
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_repos /home/caribbeanwatch/.ssh/
+COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_cache_repos /home/caribbeanwatch/.ssh/
 RUN chmod 600 /home/caribbeanwatch/.ssh/config
 RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_repos
+RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos
 RUN ls -lh /home/caribbeanwatch/.ssh
 
 # Set up git:
