@@ -11,6 +11,8 @@ env:
 
   - NAME=caribbean_basin-2h-1
   - NAME=caribbean_basin-2h-2
+  - NAME=caribbean_basin-2h-3
+  - NAME=caribbean_basin-2h-4
   # - NAME=caribbean_basin-ssh-2h
   # - NAME=curacao-2h
   # - NAME=curacao_regional-2h
