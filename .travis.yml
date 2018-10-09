@@ -2,19 +2,19 @@
 # - NAME=Xenial-16.04-docker
 
 env:
-  - NAME=caribbean_basin-daily
-  - NAME=caribbean_basin-ssh-daily
-  - NAME=curacao-daily
-  - NAME=curacao_regional-daily
-  - NAME=sababank-daily
-  - NAME=sintmaarten-daily
+  #- NAME=caribbean_basin-daily
+  #- NAME=caribbean_basin-ssh-daily
+  #- NAME=curacao-daily
+  #- NAME=curacao_regional-daily
+  #- NAME=sababank-daily
+  #- NAME=sintmaarten-daily
 
   - NAME=caribbean_basin-2h
-  - NAME=caribbean_basin-ssh-2h
-  - NAME=curacao-2h
-  - NAME=curacao_regional-2h
-  - NAME=sababank-2h
-  - NAME=sintmaarten-2h
+  #- NAME=caribbean_basin-ssh-2h
+  #- NAME=curacao-2h
+  #- NAME=curacao_regional-2h
+  #- NAME=sababank-2h
+  #- NAME=sintmaarten-2h
 
 services: docker
 dist: xenial
