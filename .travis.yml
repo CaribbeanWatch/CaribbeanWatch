@@ -55,11 +55,12 @@ jobs:
     install: docker build -t webpages -f Dockerfile_webupdate --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
       .
     script:
-      - docker run -a stdout -t webpages ./update.sh "Automatic update to static site from travis CaribbeanWatch, jobid $TRAVIS_JOB_NUMBER"
-      - docker cp webpages:/home/webdev/version $HOME/version
+      - docker run -a stdout -t webpages ./update.sh "Automatic update to static site from travis CaribbeanWatch, jobid $TRAVIS_JOB_NUMBER" | tee $HOME/version
     after_success:
     - cat $HOME/version
-    - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=Build%20$(cat $HOME/version)%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
+    - echo '**********'
+    - tail -n 1 $HOME/version
+    - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=Build%20$(tail -n 1 $HOME/version)%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
     
 after_failure:
 - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
