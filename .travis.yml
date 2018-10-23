@@ -63,7 +63,7 @@ stages:
 - deploy
 
 after_success:
-- wget -q -O - "http://prowl.weks.net/publicapi/add?                                                    apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
+- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
 after_failure:
-- wget -q -O - "http://prowl.weks.net/publicapi/add?                                                    apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
+- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
 
