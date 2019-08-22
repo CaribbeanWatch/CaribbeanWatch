@@ -46,19 +46,6 @@ jobs:
       .
     script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py
       -j $TRAVIS_JOB_NUMBER -r $NAME
-  - stage: cacheclear
-    env: NAME=cacheclear
-    services: docker
-    dist: xenial
-    language: cpp
-    before_install:
-    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
-      -in store.tar.enc -out store.tar -d
-    - tar xvf store.tar
-    install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
-      .
-    script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py
-      -j $TRAVIS_JOB_NUMBER --ccc
   - stage: deploy
     env: NAME=webpages
     services: docker
@@ -87,7 +74,6 @@ stages:
 - test
 - combine
 - deploy
-- cacheclear
 
 
 
