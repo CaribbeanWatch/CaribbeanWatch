@@ -16,7 +16,10 @@ env:
   - NAME=sababank-daily
   - NAME=sintmaarten-daily
   global:
+    # prowl
     secure: oIWSQY9TTv8ke4IUnP4b6OOBEq/D6GaL8x7p6Th/RTcfIHIMRWMogjRvECw83KRwY9fc9U7BQUZOxnj97f5/Vk3aGZQaB8T+H74R7CD4bjv/3Z7JxSJVY9TEn1Bo3MaFEvu1aMQQFKEtsHF4GkN44ikbnoXz+JT6x+/CCLfYDIuIGUOMeCzP7HB2UFR9+o7M4gzwBeTuuewWszJiTSpcfo8LeG5VCEcy9dZ+3zWuKg/JR9wOIfFSQlOEg4ZtyPf5KO0hOxT/R4Nm0ZIOXcFVj8He+ShRCoHkG2Rt+9/70x5XT4Ly5RlGQCaydT2lpeGBUfZBbIzf9Z37ut6GzVWV64s8y7LLTwwAde01dhyZkPcIeC2Ra1CuSbW6tWY5TEEjj4QrEBLRgnHbNhwtO55zyZmuWMpZYcRgcnopkiaHSztSwPd8idoo0YpuBc+HQil0+48n5uwGpk7/9FcvFNo8Y8bE1gE6+FimYZttc9RcUPbn1GCTDpCLx7Duh0s+VGte9nxNo64k8VqVrlfntESKo0jCiAd5gvzFhwNB6EW1rzKmXy5+ie8IjLMB1Irove8RVdfCtC8wbGVMexqtrVxgYtgLGQZaQX0j9LEo07bvZKwSEptGCOCCMS/wgDmswBh+An75Z3vNkItvImwzpFeflt2D4I8h+JCVvGzciNJSp2Q=
+    # curl
+    secure: BhREbCM+N8b94RzmKu9hZD1o3m2kwJxLYspkA/61QGrefNtNmzJWybUChWDliEyX6WqAVETBr9zDT0CKch1h390lB84MTaabVtiRbIDXfhKS7TS9oTPufL872LgkApUqi6XU1yIbwADEM90kpOsCPq8tCIb0Fid+LB6ibJtjysJKG+RaMx4gzcBsiyTCJXzedW4aVa9cGdSFY6AMMXoRn1XZF9XesntIAja9+2bGCzq+u11xyM0iGvPdLOAUq3u7EtrJxoXPKuR6JGcsxd+jI1PTASecFZzvoKSHSOOXZkscMsSyilIybw9uhsYnLruM3lowEl1DIWwIcDiKoU1wjv9idKnIAcljc4A56WOxEhdQVwuBcWB3+8IBCH3sdoBvZOh3jhpOnciEDBFVKUx7GFKGFQ9PYq2rGWINGfDD3D+Vj63s+ue8MKfgJK8slH3P2UYvjEnjUm+4yN2P32CWKp52jyBTsVCOA1kw8tSSgl5sTV63/gejXL3sa1n9Y4hkv6vcQo1YlvgH/rYFrfXzkrHZEeIuMBJfIk3cfN8YM37SVWy3ocLoZj7RDGc0Lsaoj8zkBQRqgGSLhdJ8oGidVBdf81PDABA+/huELmmp9UukyR83sXW+e/agklIlgNWji/Z6GbA48F3K6udXmsuxmyxRI8IIFK4gFOoIJBXrUg0=
 services: docker
 dist: xenial
 language: cpp
@@ -43,6 +46,19 @@ jobs:
       .
     script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py
       -j $TRAVIS_JOB_NUMBER -r $NAME
+  - stage: cacheclear
+    env: NAME=cacheclear
+    services: docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
+      -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
+      .
+    script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py
+      -j $TRAVIS_JOB_NUMBER --ccc
   - stage: deploy
     env: NAME=webpages
     services: docker
@@ -61,6 +77,8 @@ jobs:
     - echo '**********'
     - tail -n 1 $HOME/version
     - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=Build%20$(tail -n 1 $HOME/version)%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
+    after_failure:
+    - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=Deploy%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
     
 after_failure:
 - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
@@ -69,5 +87,9 @@ stages:
 - test
 - combine
 - deploy
+- cacheclear
 
+
+
+#curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Travis-API-Version: 3" -H "Authorization: token $CURL_TOKEN" -d "{ \"request\": { \"branch\": \"master\" } }" "https://api.travis-ci.org/repo/       CaribbeanWatch/CaribbeanWatch/requests"
 
