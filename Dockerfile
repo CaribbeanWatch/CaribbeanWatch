@@ -91,12 +91,15 @@ WORKDIR /home/caribbeanwatch
 RUN mkdir /home/caribbeanwatch/.ssh/
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_repos" >> /home/caribbeanwatch/.ssh/config
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos" >> /home/caribbeanwatch/.ssh/config
+RUN echo "IdentityFile /home/caribbeanwatch/.ssh/namecheap_candylab_updater_rsa" >> /home/caribbeanwatch/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/caribbeanwatch/.ssh/config
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_repos /home/caribbeanwatch/.ssh/
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_cache_repos /home/caribbeanwatch/.ssh/
+COPY --chown=caribbeanwatch:caribbeanwatch namecheap_candylab_updater_rsa /home/caribbeanwatch/.ssh/
 RUN chmod 600 /home/caribbeanwatch/.ssh/config
 RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_repos
 RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos
+RUN chmod 600 /home/caribbeanwatch/.ssh/namecheap_candylab_updater_rsa
 RUN ls -lh /home/caribbeanwatch/.ssh
 
 # Set up git:
@@ -111,15 +114,15 @@ COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatc
 
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/
-RUN git clone --depth 1 git@github.com:CaribbeanWatch/caribbeanwatch.github.io.git /home/caribbeanwatch/src/web/caribbeanwatch/
+RUN git clone --depth 1 ${repoaddress}caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
 
-#WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
-#RUN git pull
-
-ENV PATH /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV JOBID $TRAVIS_JOB_NUMBER
-
-#RUN /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --download
-
-#RUN make
-
+#  #WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
+#  #RUN git pull
+#  
+#  ENV PATH /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+#  ENV JOBID $TRAVIS_JOB_NUMBER
+#  
+#  #RUN /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --download
+#  
+#  #RUN make
+#  
