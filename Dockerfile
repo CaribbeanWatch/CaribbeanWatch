@@ -33,6 +33,7 @@
 
 # DockerFile for a CaribbeanWatch development container
 ARG TRAVIS_JOB_NUMBER="undefined"
+ARG repoaddress="undefined"
 
 # Use a Xenial base image
 FROM ubuntu:xenial
