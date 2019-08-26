@@ -94,6 +94,7 @@ RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_repos" >> /home
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos" >> /home/caribbeanwatch/.ssh/config
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/namecheap_candylab_updater_rsa" >> /home/caribbeanwatch/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/caribbeanwatch/.ssh/config
+RUN cat namecheap_ssh_config >> /home/caribbeanwatch/.ssh/config
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_repos /home/caribbeanwatch/.ssh/
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_cache_repos /home/caribbeanwatch/.ssh/
 COPY --chown=caribbeanwatch:caribbeanwatch namecheap_candylab_updater_rsa /home/caribbeanwatch/.ssh/
@@ -115,7 +116,8 @@ COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatc
 
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/
-RUN git clone --depth 1 ${repoaddress}caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
+#RUN git clone --depth 1 ${repoaddress}caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
+RUN git clone --depth 1 ssh://caribbeanwatch_repo:caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
 
 #  #WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
 #  #RUN git pull
