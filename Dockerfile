@@ -120,7 +120,7 @@ COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatc
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/
 #RUN git clone --depth 1 ${repoaddress}caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
-RUN git clone --depth 1 ssh://caribbeanwatch_repo:caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
+RUN git clone --depth 1 caribbeanwatch_repo:caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
 
 #  #WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
 #  #RUN git pull
