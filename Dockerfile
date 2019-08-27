@@ -94,6 +94,8 @@ RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_repos" >> /home
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos" >> /home/caribbeanwatch/.ssh/config
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/namecheap_candylab_updater_rsa" >> /home/caribbeanwatch/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/caribbeanwatch/.ssh/config
+RUN pwd
+RUN ls -lh .
 RUN cat namecheap_ssh_config >> /home/caribbeanwatch/.ssh/config
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_repos /home/caribbeanwatch/.ssh/
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_cache_repos /home/caribbeanwatch/.ssh/
