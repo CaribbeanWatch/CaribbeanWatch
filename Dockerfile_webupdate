@@ -42,16 +42,12 @@ MAINTAINER Adam Candy <adam@candylab.org>
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-        ruby \
+        ruby2.4 \
 				ruby-dev \
 				make \
         build-essential \
 				zlib1g-dev \
-				git \
-				gcc \
-				automake \
-				libtool \
-				rubygems
+				git
 
 # jekyll sass issue: Invalid US-ASCII character "\xE2"
 # https://github.com/jekyll/jekyll/issues/4268
