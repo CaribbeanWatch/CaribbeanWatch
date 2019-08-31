@@ -112,6 +112,10 @@ RUN git config --global user.email "adam@candylab.org"
 RUN git config --global user.name "Adam Candy"
 RUN git config --global push.default matching
 
+RUN git config --global pack.windowMemory "100m"
+RUN git config --global pack.packSizeLimit "100m"
+RUN git config --global pack.threads "1"
+
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN mkdir /home/caribbeanwatch/src/
 RUN git clone --depth 1 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/
