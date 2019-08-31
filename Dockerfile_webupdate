@@ -47,8 +47,11 @@ RUN apt-get update && apt-get install -y \
 				make \
         build-essential \
 				zlib1g-dev \
-				git
-
+				git \
+				gcc \
+				automake \
+				libtool \
+				rubygems
 
 # jekyll sass issue: Invalid US-ASCII character "\xE2"
 # https://github.com/jekyll/jekyll/issues/4268
