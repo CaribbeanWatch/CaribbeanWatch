@@ -24,6 +24,7 @@ services: docker
 dist: xenial
 language: cpp
 before_install:
+- echo "${prowlkey}" | sed -e 's/\(.\)../\1--/g'
 - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
   -in store.tar.enc -out store.tar -d
 - tar xvf store.tar
