@@ -1,4 +1,20 @@
 env:
+  matrix:
+  - NAME=caribbean_basin-ssh-2h
+  - NAME=curacao-2h
+  - NAME=curacao_regional-2h
+  - NAME=sababank-2h
+  - NAME=sintmaarten-2h
+  - NAME=caribbean_basin-2h-1
+  - NAME=caribbean_basin-2h-2
+  - NAME=caribbean_basin-2h-3
+  - NAME=caribbean_basin-2h-4
+  - NAME=caribbean_basin-daily
+  - NAME=caribbean_basin-ssh-daily
+  - NAME=curacao-daily
+  - NAME=curacao_regional-daily
+  - NAME=sababank-daily
+  - NAME=sintmaarten-daily
   global:
     # prowl
     secure: oIWSQY9TTv8ke4IUnP4b6OOBEq/D6GaL8x7p6Th/RTcfIHIMRWMogjRvECw83KRwY9fc9U7BQUZOxnj97f5/Vk3aGZQaB8T+H74R7CD4bjv/3Z7JxSJVY9TEn1Bo3MaFEvu1aMQQFKEtsHF4GkN44ikbnoXz+JT6x+/CCLfYDIuIGUOMeCzP7HB2UFR9+o7M4gzwBeTuuewWszJiTSpcfo8LeG5VCEcy9dZ+3zWuKg/JR9wOIfFSQlOEg4ZtyPf5KO0hOxT/R4Nm0ZIOXcFVj8He+ShRCoHkG2Rt+9/70x5XT4Ly5RlGQCaydT2lpeGBUfZBbIzf9Z37ut6GzVWV64s8y7LLTwwAde01dhyZkPcIeC2Ra1CuSbW6tWY5TEEjj4QrEBLRgnHbNhwtO55zyZmuWMpZYcRgcnopkiaHSztSwPd8idoo0YpuBc+HQil0+48n5uwGpk7/9FcvFNo8Y8bE1gE6+FimYZttc9RcUPbn1GCTDpCLx7Duh0s+VGte9nxNo64k8VqVrlfntESKo0jCiAd5gvzFhwNB6EW1rzKmXy5+ie8IjLMB1Irove8RVdfCtC8wbGVMexqtrVxgYtgLGQZaQX0j9LEo07bvZKwSEptGCOCCMS/wgDmswBh+An75Z3vNkItvImwzpFeflt2D4I8h+JCVvGzciNJSp2Q=
@@ -7,8 +23,29 @@ env:
 services: docker
 dist: xenial
 language: cpp
+before_install:
+- openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
+  -in store.tar.enc -out store.tar -d
+- tar xvf store.tar
+install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
+  .
+script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py
+  -j $TRAVIS_JOB_NUMBER -r $NAME
 jobs:
   include:
+  - stage: combine
+    env: NAME=caribbean_basin-2h
+    services: docker
+    dist: xenial
+    language: cpp
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
+      -in store.tar.enc -out store.tar -d
+    - tar xvf store.tar
+    install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
+      .
+    script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py
+      -j $TRAVIS_JOB_NUMBER -r $NAME
   - stage: deploy
     env: NAME=webpages
     services: docker
@@ -34,6 +71,8 @@ after_failure:
 - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
 
 stages:
+- test
+- combine
 - deploy
 
 
