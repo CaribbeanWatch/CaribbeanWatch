@@ -43,7 +43,7 @@ MAINTAINER Adam Candy <adam@candylab.org>
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-        ruby2.4 \
+        ruby \
 				ruby-dev \
 				make \
         build-essential \
