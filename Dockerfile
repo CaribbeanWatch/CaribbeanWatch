@@ -107,6 +107,10 @@ RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos
 RUN chmod 600 /home/caribbeanwatch/.ssh/namecheap_candylab_updater_rsa
 RUN ls -lh /home/caribbeanwatch/.ssh
 
+# Copy across scripts
+COPY --chown=caribbeanwatch:caribbeanwatch activate.sh /home/caribbeanwatch/
+RUN chmod 700 /home/caribbeanwatch/activate.sh
+
 # Set up git:
 RUN git config --global user.email "adam@candylab.org" 
 RUN git config --global user.name "Adam Candy"
