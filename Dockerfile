@@ -72,6 +72,8 @@ RUN apt-get update && apt-get install -y \
 				#\
 				#texlive-full
 
+RUN apt upgrade openssl
+
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # Upgrade pip
