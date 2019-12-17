@@ -10,3 +10,15 @@ build:
 
 update:
 	docker run -v $(PWD)/tmp/output:/home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/output -v $(PWD)/tmp/cache:/home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/cache -w /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/ -a stdout -t caribbeanwatch git pull
+
+store.tar.enc:
+	@echo Ensure logged into travis with: travis login --org
+	travis whoami
+	cp -p ~/.common/.ssh/{caribbean_watch_repos,caribbean_watch_cache_repos,candylab-updater,namecheap_candylab_updater_rsa} ~/.common/.twitterapi/twitter_secret.py ~/.common/config/travis/namecheap_ssh_config .
+	tar cpf store.tar caribbean_watch_repos caribbean_watch_cache_repos candylab-updater namecheap_candylab_updater_rsa twitter_secret.py namecheap_ssh_config
+	rm caribbean_watch_repos caribbean_watch_cache_repos candylab-updater namecheap_candylab_updater_rsa twitter_secret.py namecheap_ssh_config
+	travis encrypt-file store.tar
+	rm store.tar
+
+.PHONY: store.tar.enc
+

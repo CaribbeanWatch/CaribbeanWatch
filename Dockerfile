@@ -33,6 +33,7 @@
 
 # DockerFile for a CaribbeanWatch development container
 ARG TRAVIS_JOB_NUMBER="undefined"
+ARG repoaddress="undefined"
 
 # Use a Xenial base image
 FROM ubuntu:xenial
@@ -91,18 +92,33 @@ WORKDIR /home/caribbeanwatch
 RUN mkdir /home/caribbeanwatch/.ssh/
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_repos" >> /home/caribbeanwatch/.ssh/config
 RUN echo "IdentityFile /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos" >> /home/caribbeanwatch/.ssh/config
+RUN echo "IdentityFile /home/caribbeanwatch/.ssh/namecheap_candylab_updater_rsa" >> /home/caribbeanwatch/.ssh/config
 RUN echo "StrictHostKeyChecking no" >> /home/caribbeanwatch/.ssh/config
+COPY --chown=caribbeanwatch:caribbeanwatch namecheap_ssh_config /home/caribbeanwatch/
+RUN pwd
+RUN ls -lh .
+RUN cat namecheap_ssh_config >> /home/caribbeanwatch/.ssh/config
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_repos /home/caribbeanwatch/.ssh/
 COPY --chown=caribbeanwatch:caribbeanwatch caribbean_watch_cache_repos /home/caribbeanwatch/.ssh/
+COPY --chown=caribbeanwatch:caribbeanwatch namecheap_candylab_updater_rsa /home/caribbeanwatch/.ssh/
 RUN chmod 600 /home/caribbeanwatch/.ssh/config
 RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_repos
 RUN chmod 600 /home/caribbeanwatch/.ssh/caribbean_watch_cache_repos
+RUN chmod 600 /home/caribbeanwatch/.ssh/namecheap_candylab_updater_rsa
 RUN ls -lh /home/caribbeanwatch/.ssh
+
+# Copy across scripts
+COPY --chown=caribbeanwatch:caribbeanwatch activate.sh /home/caribbeanwatch/
+RUN chmod 700 /home/caribbeanwatch/activate.sh
 
 # Set up git:
 RUN git config --global user.email "adam@candylab.org" 
 RUN git config --global user.name "Adam Candy"
 RUN git config --global push.default matching
+
+RUN git config --global pack.windowMemory "100m"
+RUN git config --global pack.packSizeLimit "100m"
+RUN git config --global pack.threads "1"
 
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN mkdir /home/caribbeanwatch/src/
@@ -111,15 +127,16 @@ COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatc
 
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/
-RUN git clone --depth 1 git@github.com:CaribbeanWatch/caribbeanwatch.github.io.git /home/caribbeanwatch/src/web/caribbeanwatch/
+#RUN git clone --depth 1 ${repoaddress}caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
+RUN git clone --depth 1 caribbeanwatch_repo:caribbeanwatch_repo /home/caribbeanwatch/src/web/caribbeanwatch/
 
-#WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
-#RUN git pull
-
-ENV PATH /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV JOBID $TRAVIS_JOB_NUMBER
-
-#RUN /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --download
-
-#RUN make
-
+#  #WORKDIR /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current
+#  #RUN git pull
+#  
+#  ENV PATH /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+#  ENV JOBID $TRAVIS_JOB_NUMBER
+#  
+#  #RUN /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/update.py --download
+#  
+#  #RUN make
+#  
