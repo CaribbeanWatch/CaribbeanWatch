@@ -36,7 +36,7 @@ ARG TRAVIS_JOB_NUMBER="undefined"
 ARG repoaddress="undefined"
 
 # Use a Xenial base image
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <adam@candylab.org>
