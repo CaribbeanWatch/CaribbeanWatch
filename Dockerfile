@@ -49,23 +49,25 @@ RUN apt-get update && apt-get install -y \
         #netcdf-bin \
         #python-setuptools \
         #python-dev \
-        python-pip \
-        python-scipy \
-        python-numpy \
-        python-matplotlib \
-				python-mpltoolkits.basemap \
-        python-shapely \
+        python3-pip \
+        python3-scipy \
+        python3-numpy \
+        python3-matplotlib \
+				python3-mpltoolkits.basemap \
+        python3-shapely \
         #python-pyproj \
         #python-gdal \
         #gdal-bin \
-        python-imaging \
-        python-netcdf4 \
+        python3-imaging \
+        python3-netcdf4 \
 				ffmpeg
 				#\
 				#texlive-full
 
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3
+
 # Upgrade pip
-RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
+RUN pip3 install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 
 # Install ScientificPython
 #RUN pip install --force-reinstall --ignore-installed --no-binary --no-cache-dir --no-binary :all: ScientificPython
@@ -74,11 +76,11 @@ RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 #RUN pip install Pydap==3.2.1
 #RUN pip install -U geos
 #RUN pip install --no-binary :all: Shapely==1.5.9
-RUN pip install motu-client
-RUN pip install requests_oauthlib
-RUN pip install fiona
-RUN pip install tweepy
-RUN pip install cloudpickle
+RUN pip3 install motu-client
+RUN pip3 install requests_oauthlib
+RUN pip3 install fiona
+RUN pip3 install tweepy
+RUN pip3 install cloudpickle
 
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
