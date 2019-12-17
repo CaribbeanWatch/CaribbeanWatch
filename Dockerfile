@@ -87,6 +87,8 @@ RUN pip3 install fiona
 RUN pip3 install tweepy
 RUN pip3 install cloudpickle
 
+RUN python -c "import ssl; print(ssl.OPENSSL_VERSION)"
+
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
 
