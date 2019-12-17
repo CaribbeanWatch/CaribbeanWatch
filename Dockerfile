@@ -93,6 +93,9 @@ RUN pip3 install fiona
 RUN pip3 install tweepy
 RUN pip3 install cloudpickle
 
+RUN echo "DEBUGASC"
+RUN python --version
+RUN python -m motuclient --version
 RUN python -c "import ssl; print(ssl.OPENSSL_VERSION)"
 
 # Add a user
@@ -101,6 +104,11 @@ RUN adduser --disabled-password --gecos "" caribbeanwatch
 # Switch user
 USER caribbeanwatch
 WORKDIR /home/caribbeanwatch
+
+RUN echo "DEBUGASC"
+RUN python --version
+RUN python -m motuclient --version
+RUN python -c "import ssl; print(ssl.OPENSSL_VERSION)"
 
 # Setup SSH
 # https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile
@@ -138,7 +146,7 @@ RUN git config --global pack.threads "1"
 # Make a copy of the project pyRVPelagia64PE414Sababank_Current
 RUN mkdir /home/caribbeanwatch/src/
 RUN git clone --depth 1 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/
-COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/twitter_secret.py
+COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/support/twitter_secret.py
 
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/
