@@ -61,7 +61,11 @@ RUN apt-get update && apt-get install -y \
         #python3-imaging \
 				python3-pil \
         python3-netcdf4 \
-				ffmpeg
+				ffmpeg \
+				python3-oauth \
+				python3-oauth2client \
+				python3-oauthlib \
+				python3-requests-oauthlib
 				#\
 				#texlive-full
 
