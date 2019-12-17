@@ -96,7 +96,7 @@ RUN pip3 install cloudpickle
 
 RUN echo "DEBUGASC"
 RUN python --version
-#RUN python -m motuclient --version
+RUN python -m motuclient --version
 RUN python -c "import ssl; print(ssl.OPENSSL_VERSION)"
 
 # Add a user
@@ -108,7 +108,7 @@ WORKDIR /home/caribbeanwatch
 
 RUN echo "DEBUGASC"
 RUN python --version
-#RUN python -m motuclient --version
+RUN python -m motuclient --version
 RUN python -c "import ssl; print(ssl.OPENSSL_VERSION)"
 
 # Setup SSH
