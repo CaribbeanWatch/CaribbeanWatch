@@ -58,7 +58,8 @@ RUN apt-get update && apt-get install -y \
         #python-pyproj \
         #python-gdal \
         #gdal-bin \
-        python3-imaging \
+        #python3-imaging \
+				python3-pil \
         python3-netcdf4 \
 				ffmpeg
 				#\
