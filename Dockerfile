@@ -72,7 +72,7 @@ RUN apt-get update && apt-get install -y \
 				#\
 				#texlive-full
 
-RUN apt-get upgrade openssl
+RUN apt-get upgrade -y openssl
 RUN sed -i.bak -e 's/SECLEVEL=2/SECLEVEL=1/' /usr/lib/ssl/openssl.cnf
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
