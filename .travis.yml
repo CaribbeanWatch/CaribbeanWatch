@@ -27,7 +27,7 @@ before_install:
 - tar xvf store.tar
 install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
   .
-script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/update.py
+script: docker run -a stdout -t caribbeanwatch python3 /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/update.py
   -j $TRAVIS_JOB_NUMBER -r $NAME
 jobs:
   include:
