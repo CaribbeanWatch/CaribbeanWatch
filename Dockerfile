@@ -36,6 +36,7 @@ ARG TRAVIS_JOB_NUMBER="undefined"
 ARG repoaddress="undefined"
 
 # Use a Xenial base image
+ENV DEBIAN_FRONTEND=noninteractive 
 FROM ubuntu:bionic
 
 # This DockerFile is looked after by
