@@ -69,7 +69,7 @@ RUN apt-get update && apt-get install -y \
 				#\
 				#texlive-full
 
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python3
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # Upgrade pip
 RUN pip3 install -i https://pypi.python.org/simple/ --upgrade pip setuptools
