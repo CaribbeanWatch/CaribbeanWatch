@@ -36,11 +36,13 @@ ARG TRAVIS_JOB_NUMBER="undefined"
 ARG repoaddress="undefined"
 
 # Use a Xenial base image
-ENV DEBIAN_FRONTEND=noninteractive 
 FROM ubuntu:bionic
 
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <adam@candylab.org>
+
+
+ARG DEBIAN_FRONTEND=noninteractive 
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
