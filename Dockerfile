@@ -72,14 +72,13 @@ RUN apt-get update && apt-get install -y \
 				#\
 				#texlive-full
 
-#RUN apt-get upgrade -y openssl
-#RUN sed -i.bak -e 's/SECLEVEL=2/SECLEVEL=1/' /usr/lib/ssl/openssl.cnf
+RUN apt-get upgrade -y openssl
+RUN sed -i.bak -e 's/SECLEVEL=2/SECLEVEL=1/' /usr/lib/ssl/openssl.cnf
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # Upgrade pip
-#RUN pip3 install -i https://pypi.python.org/simple/ --upgrade pip setuptools
-RUN python3 -m pip install --upgrade pip
+RUN pip3 install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 
 # Install ScientificPython
 #RUN pip install --force-reinstall --ignore-installed --no-binary --no-cache-dir --no-binary :all: ScientificPython
@@ -88,13 +87,12 @@ RUN python3 -m pip install --upgrade pip
 #RUN pip install Pydap==3.2.1
 #RUN pip install -U geos
 #RUN pip install --no-binary :all: Shapely==1.5.9
+#RUN pip3 install motu-client
+RUN python3 -m pip install motuclient==1.8.4
 RUN pip3 install requests_oauthlib
 RUN pip3 install fiona
 RUN pip3 install tweepy
 RUN pip3 install cloudpickle
-#RUN pip3 install motu-client
-RUN pip3 install motu-client==1.8.4
-#RUN python3 -m pip install motuclient==1.8.4
 
 RUN echo "DEBUGASC"
 RUN python --version
