@@ -87,7 +87,8 @@ RUN pip3 install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 #RUN pip install Pydap==3.2.1
 #RUN pip install -U geos
 #RUN pip install --no-binary :all: Shapely==1.5.9
-RUN pip3 install motu-client
+#RUN pip3 install motu-client
+RUN python3 -m pip install motuclient==1.8.4
 RUN pip3 install requests_oauthlib
 RUN pip3 install fiona
 RUN pip3 install tweepy
