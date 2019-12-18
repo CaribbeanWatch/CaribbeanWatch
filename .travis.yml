@@ -18,7 +18,7 @@ env:
   global:
     secure: heGKpV7TD4HhZfMbrJR8KEans5vywQzMS6HExcCWtA8+/pItu4kepVaqNasnNX0Mkjizg3sKN4uoh+kH66bfpoXf7kjFlnmRjhnHB4QvnTY0iuYVnu8Up0dX4yQv7kWXcbCD0ENmZv+WbeoBBRb5aTsCHTHTEx3rUkduZ7d/Pd/zAfBGnWtWPxhngR2k1JPRGM6w2t/UeZE/naFYduB041kMVKDuWsWIf1MFGBdJdp+4/WtZlreYKCd+PazKD7Giklg/4LjVciom2keILBCbtjhDv810VSs50Z8BHqON2ft93Z02wIlWVTqVotYLcB+Ah7daSMjapUb07HRSGIXyY/dIxVKILve0DSBlN5GVsYbqvp/9eiE1GjA4TXQBG5xGv8QTep8dQFSE19esMQXs8WfetP3xDQ/ciEaNZoFSehgP7vZhTXLiky7I4JGzJJTuWHwPWXUwF22KC6t2x7i9Bgy8Bp8hv0qvDdSf1ZmAjLsxCECpe6eeMvGSP8/pJggmB1p4vL7C77xcJ7KWULhJELGU/MoRf+G7XiGSTMXzcgT1tkt6Xw+CGPDbQFPs+HtHcpLsATaftIkX0OT4tMj0xuGQnicy5Ihwz14aLa6zuk3jRdy7Lt+FWXqCLIQxnt3ZC11AwCNsvzTqUlcFioj9xRh84nC9gum3WozXLVos+C0=
 services: docker
-dist: xenial
+dist: bionic
 language: python
 before_install:
 #- echo "${prowlkey}" | sed -e 's/\(.\)../\1--/g'
@@ -33,7 +33,7 @@ jobs:
   - stage: combine
     env: NAME=caribbean_basin-2h
     services: docker
-    dist: xenial
+    dist: bionic
     language: python
     before_install:
     - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
@@ -45,7 +45,7 @@ jobs:
   - stage: activate
     env: NAME=activate_media
     services: docker
-    dist: xenial
+    dist: bionic
     language: cpp
     before_install:
     - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
@@ -56,7 +56,7 @@ jobs:
   - stage: deploy
     env: NAME=webpages
     services: docker
-    dist: xenial
+    dist: bionic
     language: python
     before_install:
     - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
