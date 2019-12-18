@@ -148,6 +148,7 @@ RUN git config --global pack.threads "1"
 RUN mkdir /home/caribbeanwatch/src/
 RUN git clone --depth 1 --branch="current" "git@bitbucket.org:adamcandy/pyrvpelagia64pe414sababank.git" /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/
 COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/support/twitter_secret.py
+COPY --chown=caribbeanwatch:caribbeanwatch cmems_secret.py /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/cmems_secret.py
 
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/

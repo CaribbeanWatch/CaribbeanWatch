@@ -22,8 +22,7 @@ dist: xenial
 language: python
 before_install:
 #- echo "${prowlkey}" | sed -e 's/\(.\)../\1--/g'
-- openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
-  -in store.tar.enc -out store.tar -d
+- openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
 - tar xvf store.tar
 install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
   .
@@ -37,8 +36,7 @@ jobs:
     dist: xenial
     language: python
     before_install:
-    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
-      -in store.tar.enc -out store.tar -d
+    - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
       .
@@ -50,8 +48,7 @@ jobs:
     dist: xenial
     language: cpp
     before_install:
-    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
-      -in store.tar.enc -out store.tar -d
+    - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
       .
@@ -62,8 +59,7 @@ jobs:
     dist: xenial
     language: python
     before_install:
-    - openssl aes-256-cbc -K $encrypted_149a08f8ff66_key -iv $encrypted_149a08f8ff66_iv
-      -in store.tar.enc -out store.tar -d
+    - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
     - tar xvf store.tar
     install: docker build -t webpages -f Dockerfile_webupdate --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
       .
