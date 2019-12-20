@@ -75,6 +75,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get upgrade -y openssl
 RUN sed -i.bak -e 's/SECLEVEL=2/SECLEVEL=1/' /usr/lib/ssl/openssl.cnf
 
+# Select Python3 as the default
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # Upgrade pip
@@ -93,16 +94,13 @@ RUN python3 -m pip install motuclient==1.8.4
 # Patch motuclient to handle the CMEMS API interaction errors
 #RUN sed -i -e "s/\(motu_reply=m.read()\)/\1; print('MOTU_REPLY'); print(motu_reply); print(' ')/" /usr/local/lib/python3.6/dist-packages/motu_utils/motu_api.py
 COPY motu_api.py /usr/local/lib/python3.6/dist-packages/motu_utils/motu_api.py
+RUN rm -rf /usr/local/lib/python3.6/site-packages/motu_utils/__pycache__
 
 RUN pip3 install requests_oauthlib
 RUN pip3 install fiona
 RUN pip3 install tweepy
 RUN pip3 install cloudpickle
 
-RUN echo "DEBUGASC"
-RUN python --version
-RUN python -m motuclient --version
-RUN python -c "import ssl; print(ssl.OPENSSL_VERSION)"
 
 # Add a user
 RUN adduser --disabled-password --gecos "" caribbeanwatch
@@ -155,9 +153,13 @@ RUN git clone --depth 1 --branch="current" "git@bitbucket.org:adamcandy/pyrvpela
 COPY --chown=caribbeanwatch:caribbeanwatch twitter_secret.py /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/support/twitter_secret.py
 COPY --chown=caribbeanwatch:caribbeanwatch cmems_secret.py /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/cmems_secret.py
 
+RUN echo "DEBUGASC"
+RUN python --version
+RUN python -m motuclient --version
+RUN python -c "import ssl; print(ssl.OPENSSL_VERSION)"
 RUN python3 -v -c "import motuclient" 2>&1 | grep motuclient
-RUN /usr/bin/python3 /usr/local/bin/motuclient -u $(grep CMEMS_USER /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/cmems_secret.py | sed -e "s/'$//" -e "s/^.*'//") -p $(grep CMEMS_PASS /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/cmems_secret.py | sed -e "s/'$//" -e "s/^.*'//") -m http://nrt.cmems-du.eu/motu-web/Motu -s GLOBAL_ANALYSIS_FORECAST_PHY_001_024-TDS -d global-analysis-forecast-phy-001-024-hourly-t-u-v-ssh -x -72 -X -60 -y 10 -Y 20 -t "2019-12-11 00:00:00" -T "2019-12-28 23:59:59" -z 0.493 -Z 0.4942 -v thetao -v zos -v uo -v vo
-RUN ls -lhtr
+#RUN /usr/bin/python3 /usr/local/bin/motuclient -u $(grep CMEMS_USER /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/cmems_secret.py | sed -e "s/'$//" -e "s/^.*'//") -p $(grep CMEMS_PASS /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/mercator/cmems_secret.py | sed -e "s/'$//" -e "s/^.*'//") -m http://nrt.cmems-du.eu/motu-web/Motu -s GLOBAL_ANALYSIS_FORECAST_PHY_001_024-TDS -d global-analysis-forecast-phy-001-024-hourly-t-u-v-ssh -x -72 -X -60 -y 10 -Y 20 -t "2019-12-11 00:00:00" -T "2019-12-28 23:59:59" -z 0.493 -Z 0.4942 -v thetao -v zos -v uo -v vo
+#RUN ls -lhtr
 
 # Make a copy of the project caribbeanwatch web 
 RUN mkdir /home/caribbeanwatch/src/web/
