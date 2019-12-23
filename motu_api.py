@@ -620,6 +620,7 @@ def execute_request(_options):
                             dom = minidom.parseString(motu_reply)
                         except:
                             log.error(motu_reply)
+                            dom = None
                             pass
                             
     
