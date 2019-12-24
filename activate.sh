@@ -10,5 +10,5 @@ ssh caribbeanwatch_repo "cd ~/caribbeanwatch_repo_nonbare/ && git pull"
 ssh caribbeanwatch_repo "rsync -av --exclude=.git ~/caribbeanwatch_repo_nonbare/images/ ~/caribbeanwatch.candylab.org/images/"
 
 # Clean up cache repo
-ssh caribbeanwatch_repo "~/clear_history-caribbeanwatch_cache"
+#ssh caribbeanwatch_repo "~/clear_history-caribbeanwatch_cache"
 
