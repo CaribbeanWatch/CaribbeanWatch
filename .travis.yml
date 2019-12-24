@@ -5,10 +5,7 @@ env:
   - NAME=curacao_regional-2h
   - NAME=sababank-2h
   - NAME=sintmaarten-2h
-  - NAME=caribbean_basin-2h-1
-  - NAME=caribbean_basin-2h-2
-  - NAME=caribbean_basin-2h-3
-  - NAME=caribbean_basin-2h-4
+  - NAME=caribbean_basin-2h
   - NAME=caribbean_basin-daily
   - NAME=caribbean_basin-ssh-daily
   - NAME=curacao-daily
@@ -30,18 +27,6 @@ script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPela
   -j $TRAVIS_JOB_NUMBER -r $NAME
 jobs:
   include:
-  - stage: combine
-    env: NAME=caribbean_basin-2h
-    services: docker
-    dist: bionic
-    language: python
-    before_install:
-    - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
-    - tar xvf store.tar
-    install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
-      .
-    script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/update.py
-      -j $TRAVIS_JOB_NUMBER -r $NAME
   - stage: activate
     env: NAME=activate_media
     services: docker
