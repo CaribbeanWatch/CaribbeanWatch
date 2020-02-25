@@ -1,3 +1,9 @@
+notifications:
+  email:
+    recipients:
+     - caribbeanwatch@candylab.org
+     on_success: always
+     on_failure: always
 env:
   matrix:
   - NAME=caribbean_basin-ssh-2h
@@ -39,14 +45,6 @@ jobs:
       .
     script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/activate.sh
   - stage: deploy
-    notifications:
-      email:
-       - caribbeanwatch@candylab.org
-      email:
-        recipients:
-         - caribbeanwatch@candylab.org
-         on_success: always
-         on_failure: always
     env: NAME=webpages
     services: docker
     dist: bionic
