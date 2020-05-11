@@ -67,6 +67,6 @@ stages:
 notifications:
   email:
     recipients:
-    - caribbeanwatch@candylab.org
+    - CaribbeanWatch@candylab.org
     on_success: always
     on_failure: always
