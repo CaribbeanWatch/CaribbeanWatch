@@ -23,6 +23,8 @@ before_install:
 #- echo "${prowlkey}" | sed -e 's/\(.\)../\1--/g'
 - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
 - tar xvf store.tar
+- echo ${ptoken} | wc -c
+- curl -s --form-string "token=${ptoken}" --form-string "user=${pkey}" --form-string "title=Build begun" --form-string "message=Build $TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
 install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
   .
 script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/update.py
