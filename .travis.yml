@@ -13,9 +13,8 @@ env:
   - NAME=sababank-daily
   - NAME=sintmaarten-daily
   global:
-    secure: heGKpV7TD4HhZfMbrJR8KEans5vywQzMS6HExcCWtA8+/pItu4kepVaqNasnNX0Mkjizg3sKN4uoh+kH66bfpoXf7kjFlnmRjhnHB4QvnTY0iuYVnu8Up0dX4yQv7kWXcbCD0ENmZv+WbeoBBRb5aTsCHTHTEx3rUkduZ7d/Pd/zAfBGnWtWPxhngR2k1JPRGM6w2t/UeZE/naFYduB041kMVKDuWsWIf1MFGBdJdp+4/WtZlreYKCd+PazKD7Giklg/4LjVciom2keILBCbtjhDv810VSs50Z8BHqON2ft93Z02wIlWVTqVotYLcB+Ah7daSMjapUb07HRSGIXyY/dIxVKILve0DSBlN5GVsYbqvp/9eiE1GjA4TXQBG5xGv8QTep8dQFSE19esMQXs8WfetP3xDQ/ciEaNZoFSehgP7vZhTXLiky7I4JGzJJTuWHwPWXUwF22KC6t2x7i9Bgy8Bp8hv0qvDdSf1ZmAjLsxCECpe6eeMvGSP8/pJggmB1p4vL7C77xcJ7KWULhJELGU/MoRf+G7XiGSTMXzcgT1tkt6Xw+CGPDbQFPs+HtHcpLsATaftIkX0OT4tMj0xuGQnicy5Ihwz14aLa6zuk3jRdy7Lt+FWXqCLIQxnt3ZC11AwCNsvzTqUlcFioj9xRh84nC9gum3WozXLVos+C0=
-    secure: gBf+auBYyEBDQU4b4Cl4yyILbeASNuhDyFBW902O9VyLgW35TpmuXRl7cQdvEg9/BfTBYzDGuIYYpRFO5sL4L/4Ea4nlBUv/T8vfi2q3ITWuGKWzAjhuW/G5CzgrI15fcx1J6zmc3hHXuxh/IDSr0h7891ZQNIo0bK4MvGT37/b4nYVc6jyPVhDAG5L8y0BL6p6lPOSpT+1O8PUdh2cg2L6kW5KViyhUvf3yUCJPlcUn7NqtyXD3orJdc6/k/w4TaVfduuZ1YqADHyd41Ji/ckUyxz0ZxAKfF8lAP2h807TDa+UEwgwzttsARevdXhONSSBOBPfc+g2OYUv/KMpEfaB+lXXhsvc9EsdPws/yg0D9XKQidVyatWzlGtXatFQ4FWDO2qnhKVsjCD8llmjk3c0FtJREETRxo6NmKXEiMYlff8hLX+FqYUgVAZiAcj8dNhrlrFUEfNz7ixGSGzQpxsXGtRhBMAKzHK0LAoER46N/6r9B8wJEX/MHLYmAoXhrRYv24jDRlGF2HKE+j36/e3Q4cKTXe3Co463qPhDeKvXIGTNqn7moJVfVlKPbJzlf85PkfJTQs35De+vJy7PJKdwkDuje/SGVcuWzV0V2ESrhbeIQtEJelDMeFX2829JLuu/L0EZBSx7Gtf+XAoe6Dyu1vAYruNshy/zLHd8X4QM=
-    secure: m4Rz1XqzFZvfYjLjiOm/4JjGwdHH0ob6v1aimoir15bhhec1+B/t5elpZobfAeag6qiVO/sRd05ktnCwNiZgHhAvYj4TuKsy8bA3Fn0M2DEzh6eMS1ELtLBrGaVnqF5JRW8uDjM7hMo/esdxk47I3gQ+HyLzw8a+AyIXFLLKsQ3+FeebDVHVtggbaToP3IF7VRdSxLZuF7ufo2MS2FkZprrdid3P48iKKU/bEz2jHqzYieELK/RugqFdGm8HZJF8yQdES0ec6TDkLEJw/m0TwvM4/Uv6G26rH5GtK2h5ZSNLMM+7PLsDgTIavRMEP8KV16lhzajtgviDK76qt9jDTitpavqsxlzU2bD7T2vHfNBtT3A7zhojD5sIkKyiI0YdmMgT4vt2GFrkjsclhB4tQa489CFUNpSwy50wiPBG8X1fMDjbEFBmpb65CPeH08c5SjgLEMWut2wEBdjgBJ5ovqEsGu418w0rswhEOJs3H4r45hWwYoEJrzPn8HCGAbku6A7TGMIUAd5e/Aj2pDFazBFXqjRTmx7lUcpYy3l73fYHok+WJCBmpcy1Pk+5WjoQgNG5hmCyEbE+EshCn9+HjWDW/ROiPf/KWebTgVNbmH72gTLxkyo2/7O/0lkUaiwlNCYGmmkOxSORihp+70zKubxGPgtRlOg0e2hQpwvkqbI=
+    #secure: heGKpV7TD4HhZfMbrJR8KEans5vywQzMS6HExcCWtA8+/pItu4kepVaqNasnNX0Mkjizg3sKN4uoh+kH66bfpoXf7kjFlnmRjhnHB4QvnTY0iuYVnu8Up0dX4yQv7kWXcbCD0ENmZv+WbeoBBRb5aTsCHTHTEx3rUkduZ7d/Pd/zAfBGnWtWPxhngR2k1JPRGM6w2t/UeZE/naFYduB041kMVKDuWsWIf1MFGBdJdp+4/WtZlreYKCd+PazKD7Giklg/4LjVciom2keILBCbtjhDv810VSs50Z8BHqON2ft93Z02wIlWVTqVotYLcB+Ah7daSMjapUb07HRSGIXyY/dIxVKILve0DSBlN5GVsYbqvp/9eiE1GjA4TXQBG5xGv8QTep8dQFSE19esMQXs8WfetP3xDQ/ciEaNZoFSehgP7vZhTXLiky7I4JGzJJTuWHwPWXUwF22KC6t2x7i9Bgy8Bp8hv0qvDdSf1ZmAjLsxCECpe6eeMvGSP8/pJggmB1p4vL7C77xcJ7KWULhJELGU/MoRf+G7XiGSTMXzcgT1tkt6Xw+CGPDbQFPs+HtHcpLsATaftIkX0OT4tMj0xuGQnicy5Ihwz14aLa6zuk3jRdy7Lt+FWXqCLIQxnt3ZC11AwCNsvzTqUlcFioj9xRh84nC9gum3WozXLVos+C0=
+    secure: "FE16JiyAV7aAdQfF41Yy502sv+d9PMf7Ijw1c01Bfev44TeuI/76mHdS+Jbb5Xr9cMr0AZjt1Zlpk45aG2UWxVrVpdf7f52q1c1fWeUq3/mT5wLv10ULSMN/+WeuI3+VZmFP9WQtgZJlv8DE31peu3tvKmDDRlVsjQ1G8rAuaa7ENIFjpXVmhtQSkcdNtbNX+W3AeTR9T7APTsWQVgmmpCPegKWjarE0ddBhWfh5eghfja5Ik+enVOT4hOBhrxHdSJMMnr2jteRmwsEhA5+4fDnJfyn36lvUBHIDrS6TV8+0DbwIL+uh+G3MS3y8Tr8+Src/PaIqxjQuM/O7dFof6RXeSs8tsQ8GfFOXkKrqvtG0ECscFmB7TcvheWPtfKUImYLXPsTae/glutGuKMUWdF0T55P2YlG94NjwChzcNYG+zlVg0JuoV3r3MOxuWH5tpLEmmXdOop2lTgC/ArzANPBG0nFEcYm+5hOnTaX58as8PMiOpRDbeuWckRq8yLZeYZTdhciLX8QvB0/vOt6svLhavaXtx1xHaNL48QQ895RixBBGHzFrIbHviVPrcLiVHAjnRpWI7oI+iVly6ySzUInXMxqc73OqWIWsTwoCuzt4lnovduDrH+/ys8RbrYrGuaqKjo3z0bCT0IukA+lgauXxhqZPsZ9BI5yONAsaJGQ="
 services: docker
 dist: bionic
 language: python
@@ -23,8 +22,9 @@ before_install:
 #- echo "${prowlkey}" | sed -e 's/\(.\)../\1--/g'
 - openssl aes-256-cbc -K $encrypted_a64724db4394_key -iv $encrypted_a64724db4394_iv -in store.tar.enc -out store.tar -d
 - tar xvf store.tar
-- echo ${ptoken} | wc -c
-- curl -s --form-string "token=${ptoken}" --form-string "user=${pkey}" --form-string "title=Build begun" --form-string "message=Build $TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
+- echo " user: $(echo "${po%%:*}" | wc -c) $(echo "${po%%:*}" | cut -c1-4)"
+- echo "token: $(echo "${po##*:}" | wc -c) $(echo "${po##*:}" | cut -c1-4)"
+- curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build begun" --form-string "message=Build $TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
 install: docker build -t caribbeanwatch -f Dockerfile --build-arg TRAVIS_JOB_NUMBER="$TRAVIS_JOB_NUMBER"
   .
 script: docker run -a stdout -t caribbeanwatch /home/caribbeanwatch/src/pyRVPelagia64PE414Sababank_Current/update.py
@@ -58,14 +58,14 @@ jobs:
     - cat $HOME/version
     - echo '**********'
     - tail -n 1 $HOME/version
-    - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=Build%20$(tail -n 1 $HOME/version)%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
-    - curl -s --form-string "token=${ptoken}" --form-string "user=${pkey}" --form-string "title=Build success" --form-string "message=Build $(tail -n 1 $HOME/version) $TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
+    #- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=Build%20$(tail -n 1 $HOME/version)%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
+    - curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build success" --form-string "message=Build $(tail -n 1 $HOME/version) $TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
     after_failure:
-    - wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=Deploy%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
-    - curl -s --form-string "token=${ptoken}" --form-string "user=${pkey}" --form-string "title=Build failure" --form-string "message=Deploy $TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
+    #- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=Deploy%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
+    - curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build failure" --form-string "message=Deploy $TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
 after_failure:
-- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
-- curl -s --form-string "token=${ptoken}" --form-string "user=${pkey}" --form-string "title=Build failure" --form-string "message=$TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
+#- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
+- curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build failure" --form-string "message=$TRAVIS_JOB_NUMBER $TRAVIS_JOB_WEB_URL" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
 stages:
 - test
 - combine
