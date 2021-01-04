@@ -63,13 +63,13 @@ jobs:
     - echo '**********'
     - tail -n 1 $HOME/version
     #- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20success&description=Build%20$(tail -n 1 $HOME/version)%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
-    - curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build success" --form-string "message=Build $(tail -n 1 $HOME/version) $TRAVIS_JOB_NUMBER" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
+    - curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build success [TO BE QUIETENED 1]" --form-string "message=Build $(tail -n 1 $HOME/version) $TRAVIS_JOB_NUMBER" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
     after_failure:
     #- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=Deploy%20$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
-    - curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build failure" --form-string "message=Deploy $TRAVIS_JOB_NUMBER" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
+    - curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build failure [TO BE QUIETENED 2]" --form-string "message=Deploy $TRAVIS_JOB_NUMBER" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
 after_failure:
 #- wget -q -O - "http://prowl.weks.net/publicapi/add?apikey=${prowlkey}&priority=0&application=CARIBBEANWATCH&event=Build%20failure&description=$TRAVIS_JOB_NUMBER%20$TRAVIS_JOB_WEB_URL"
-- curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build failure" --form-string "message=$TRAVIS_JOB_NUMBER" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
+- curl -s --form-string "token=${po##*:}" --form-string "user=${po%%:*}" --form-string "title=Build failure [TO BE QUIETENED 3]" --form-string "message=$TRAVIS_JOB_NUMBER" --form-string "url_title=Open in Travis CI" --form-string "url=$TRAVIS_JOB_WEB_URL" https://api.pushover.net/1/messages.json
 stages:
 - test
 - combine
