@@ -1,5 +1,6 @@
+os: linux
 env:
-  matrix:
+  jobs:
   - NAME=caribbean_basin-ssh-2h
   - NAME=curacao-2h
   - NAME=curacao_regional-2h
